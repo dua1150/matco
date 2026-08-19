@@ -37,8 +37,7 @@ export type Project = {
 // NOTE: location values are Omani city labels used for project presentation.
 // These are not confirmed to be the exact real project locations unless
 // separately verified by the client — treat as location labels, not
-// verified addresses. No street names, coordinates, or specific claims
-// have been added.
+// verified addresses.
 
 export const projects: Project[] = [
   {
@@ -140,12 +139,12 @@ export const projects: Project[] = [
   {
     id: "prj-05",
     slug: "kitchen-cabinetry-collection",
-    name: "Kitchen Cabinetry — Portfolio Collection",
+    name: "Interior Design — Portfolio Collection",
     category: ["interior", "carpentry"],
     location: "Nizwa, Sultanate of Oman",
     description:
-      "A collection of completed kitchen installations showcasing MATCO's range in custom cabinetry — from classic white finishes to warm wood-tone builds.",
-    servicesProvided: ["Custom Carpentry", "Kitchen Cabinetry"],
+      "A collection of completed interior installations — kitchens, living spaces, and lounges — showcasing MATCO's range in custom cabinetry and interior finishing.",
+    servicesProvided: ["Custom Carpentry", "Interior Design", "Kitchen Cabinetry"],
     coverImage: {
       src: "/images/projects/kitchen-cabinetry-collection/cover.jpg",
       alt: "Classic white kitchen cabinetry with black sink",
@@ -166,6 +165,26 @@ export const projects: Project[] = [
       {
         src: "/images/projects/kitchen-cabinetry-collection/4.jpg",
         alt: "Modern grey and wood-tone kitchen island cabinetry",
+      },
+      {
+        src: "/images/projects/kitchen-cabinetry-collection/5.jpg",
+        alt: "Luxury lounge interior with gold-lit wall paneling",
+      },
+      {
+        src: "/images/projects/kitchen-cabinetry-collection/6.jpg",
+        alt: "Cream-toned living room with wall-mounted television",
+      },
+      {
+        src: "/images/projects/kitchen-cabinetry-collection/7.jpg",
+        alt: "Modern black and white living room with fireplace",
+      },
+      {
+        src: "/images/projects/kitchen-cabinetry-collection/8.jpg",
+        alt: "Neutral-toned living room with statement chandelier",
+      },
+      {
+        src: "/images/projects/kitchen-cabinetry-collection/9.jpg",
+        alt: "Bright open-plan living and dining interior",
       },
     ],
     featured: false,
@@ -206,8 +225,8 @@ export const projects: Project[] = [
     category: ["steel-fabrication"],
     location: "Sohar, Sultanate of Oman",
     description:
-      "Structural steel fabrication and welding work, showing precision cutting, welding, and finishing carried out in a controlled workshop environment.",
-    servicesProvided: ["Steel Fabrication", "Welding & Metalwork"],
+      "Structural steel fabrication and custom ironwork — from welding and precision cutting to ornamental gates, railings, and staircases.",
+    servicesProvided: ["Steel Fabrication", "Welding & Metalwork", "Custom Gates & Railings"],
     coverImage: {
       src: "/images/services/steel-fabrication.jpg",
       alt: "Welder cutting steel with angle grinder, sparks flying",
@@ -225,6 +244,26 @@ export const projects: Project[] = [
         src: "/images/projects/steel-fabrication-works/3.jpg",
         alt: "Grinding steel structure, sparks flying",
       },
+      {
+        src: "/images/projects/steel-fabrication-works/4.jpg",
+        alt: "Ornamental bronze scrollwork entrance gate",
+      },
+      {
+        src: "/images/projects/steel-fabrication-works/5.jpg",
+        alt: "Black wrought-iron staircase railing detail",
+      },
+      {
+        src: "/images/projects/steel-fabrication-works/6.jpg",
+        alt: "Ornate wrought-iron interior staircase railing",
+      },
+      {
+        src: "/images/projects/steel-fabrication-works/7.jpg",
+        alt: "Bronze custom gate with monogram detail",
+      },
+      {
+        src: "/images/projects/steel-fabrication-works/8.jpg",
+        alt: "Welder working with blue flame torch, sparks flying",
+      },
     ],
     featured: false,
   },
@@ -235,7 +274,7 @@ export const projects: Project[] = [
     category: ["building-construction"],
     location: "Muscat, Sultanate of Oman",
     description:
-      "Progress documentation from an active building construction site, showing structural steelwork and site operations underway.",
+      "Progress documentation across multiple active building construction sites, showing structural steelwork, residential builds, and commercial developments underway.",
     servicesProvided: ["Building Construction", "Site Management"],
     coverImage: {
       src: "/images/services/building-construction.jpg",
@@ -253,6 +292,92 @@ export const projects: Project[] = [
       {
         src: "/images/projects/construction-site-progress/3.jpg",
         alt: "Steel warehouse structure under construction",
+      },
+      {
+        src: "/images/projects/construction-site-progress/4.jpg",
+        alt: "Glass high-rise tower under construction with crane",
+      },
+      {
+        src: "/images/projects/construction-site-progress/5.jpg",
+        alt: "Steel skyscraper frame under construction against the sky",
+      },
+      {
+        src: "/images/projects/construction-site-progress/6.jpg",
+        alt: "Modern residential villas under construction with workers on site",
+      },
+      {
+        src: "/images/projects/construction-site-progress/7.jpg",
+        alt: "Structural steel frame of a building under construction",
+      },
+      {
+        src: "/images/projects/construction-site-progress/8.jpg",
+        alt: "Commercial building construction site, aerial view",
+      },
+    ],
+    featured: false,
+  },
+  {
+    id: "prj-09",
+    slug: "exterior-facade-collection",
+    name: "Exterior & Facade Collection",
+    category: ["exterior"],
+    location: "Muscat, Sultanate of Oman",
+    description:
+      "A collection of exterior and facade work — modern architectural finishes, glass facades, and finished home exteriors reflecting MATCO's exterior design capabilities.",
+    servicesProvided: ["Exterior Finishing", "Facade Design"],
+    coverImage: {
+      src: "/images/projects/exterior-facade-collection/1.jpg",
+      alt: "Modern house exterior with glass and dark wood facade",
+    },
+    images: [
+      {
+        src: "/images/projects/exterior-facade-collection/1.jpg",
+        alt: "Modern house exterior with glass and dark wood facade",
+      },
+      {
+        src: "/images/projects/exterior-facade-collection/2.jpg",
+        alt: "Contemporary black-toned house exterior with landscaped driveway",
+      },
+      {
+        src: "/images/projects/exterior-facade-collection/3.jpg",
+        alt: "Glass facade of a modern commercial building at dusk",
+      },
+    ],
+    featured: false,
+  },
+  {
+    id: "prj-10",
+    slug: "aluminium-upvc-collection",
+    name: "Aluminium & UPVC Collection",
+    category: ["aluminium-upvc"],
+    location: "Sohar, Sultanate of Oman",
+    description:
+      "A showcase of aluminium and UPVC installations — glass partitions, sliding doors, entrance systems, and window/door framing across residential and office projects.",
+    servicesProvided: ["Aluminium & UPVC Installations", "Glass Door & Window Systems"],
+    coverImage: {
+      src: "/images/projects/aluminium-upvc-collection/1.jpg",
+      alt: "Glass-walled office meeting room with black aluminium framing",
+    },
+    images: [
+      {
+        src: "/images/projects/aluminium-upvc-collection/1.jpg",
+        alt: "Glass-walled office meeting room with black aluminium framing",
+      },
+      {
+        src: "/images/projects/aluminium-upvc-collection/2.jpg",
+        alt: "Modern glass entrance door with slim aluminium framing",
+      },
+      {
+        src: "/images/projects/aluminium-upvc-collection/3.jpg",
+        alt: "Glass entrance door with pendant lanterns",
+      },
+      {
+        src: "/images/projects/aluminium-upvc-collection/4.jpg",
+        alt: "Aluminium-framed glass sliding door opening to a living room",
+      },
+      {
+        src: "/images/projects/aluminium-upvc-collection/5.jpg",
+        alt: "White UPVC bifold door installation",
       },
     ],
     featured: false,
