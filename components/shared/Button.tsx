@@ -7,10 +7,12 @@ import {
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
+type ButtonTone = "default" | "inverse";
 
 type BaseProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  tone?: ButtonTone;
   children: ReactNode;
   className?: string;
 };
@@ -31,13 +33,19 @@ type ButtonProps = LinkButtonProps | NativeButtonProps;
 const base =
   "inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-all duration-300 whitespace-nowrap";
 
-const variants: Record<ButtonVariant, string> = {
-  primary: "bg-maroon text-text-primary hover:bg-maroon-hover",
-  secondary:
-    "border border-line text-text-primary hover:border-gold hover:text-gold",
-  ghost:
-    "text-text-primary hover:text-gold underline-offset-4 hover:underline",
-};
+function getVariantClasses(variant: ButtonVariant, tone: ButtonTone): string {
+  if (variant === "primary") {
+    return "bg-maroon text-inverse hover:bg-maroon-hover";
+  }
+  if (variant === "secondary") {
+    return tone === "inverse"
+      ? "border border-inverse/40 text-inverse hover:border-gold hover:text-gold"
+      : "border border-line text-text-primary hover:border-gold hover:text-gold";
+  }
+  return tone === "inverse"
+    ? "text-inverse hover:text-gold underline-offset-4 hover:underline"
+    : "text-text-primary hover:text-gold underline-offset-4 hover:underline";
+}
 
 const sizes: Record<ButtonSize, string> = {
   sm: "px-5 py-2.5 text-sm",
@@ -48,12 +56,13 @@ const sizes: Record<ButtonSize, string> = {
 export default function Button({
   variant = "primary",
   size = "md",
+  tone = "default",
   children,
   className = "",
   href,
   ...props
 }: ButtonProps) {
-  const classes = `${base} ${variants[variant]} ${
+  const classes = `${base} ${getVariantClasses(variant, tone)} ${
     variant !== "ghost" ? sizes[size] : ""
   } ${className}`;
 
@@ -69,7 +78,7 @@ export default function Button({
     );
   }
 
-  return ( 
+  return (
     <button
       className={classes}
       {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}

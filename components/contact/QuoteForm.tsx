@@ -24,6 +24,27 @@ const INITIAL_STATE: FormState = {
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
+const WHATSAPP_NUMBER = "96897629914";
+
+function buildWhatsAppMessage(form: FormState): string {
+  const serviceName =
+    services.find((s) => s.slug === form.projectType)?.name ?? form.projectType;
+
+  const lines = [
+    "New Quote Request — MATCO Website",
+    "",
+    `Name: ${form.name}`,
+    `Phone: ${form.phone}`,
+    form.email ? `Email: ${form.email}` : null,
+    `Project Type: ${serviceName}`,
+    form.budget ? `Budget: ${form.budget}` : null,
+    "",
+    `Message: ${form.message}`,
+  ].filter(Boolean);
+
+  return lines.join("\n");
+}
+
 export default function QuoteForm() {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -52,10 +73,12 @@ export default function QuoteForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    // NOTE: Frontend-only for now — no backend/API is connected, so
-    // submissions are not sent or stored anywhere yet. Wire a real
-    // submit handler here once a backend/API route or email service
-    // is available.
+    const message = buildWhatsAppMessage(form);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
 
@@ -63,16 +86,29 @@ export default function QuoteForm() {
     return (
       <div className="flex flex-col items-start gap-4 border border-line bg-surface p-8">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-          Request Received
+          Request Ready
         </span>
         <h3 className="text-xl font-semibold text-text-primary sm:text-2xl">
           Thank you, {form.name.split(" ")[0]}.
         </h3>
         <p className="text-sm leading-relaxed text-text-secondary">
-          Your project details have been noted. Since this form isn&apos;t
-          connected to a live backend yet, please also reach out directly via
-          phone or WhatsApp so we can respond as quickly as possible.
+          A WhatsApp window should have opened with your project details
+          filled in — just press send. If it didn&apos;t open, use the
+          button below.
         </p>
+        <Button
+          type="button"
+          variant="primary"
+          size="md"
+          onClick={() => {
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+              buildWhatsAppMessage(form)
+            )}`;
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+          }}
+        >
+          Open WhatsApp Again
+        </Button>
         <Button
           type="button"
           variant="secondary"

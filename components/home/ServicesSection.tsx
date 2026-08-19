@@ -41,19 +41,19 @@ export default function ServicesSection() {
                   quality={90}
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/60 to-transparent" />
 
                 <div className="relative z-10 flex flex-col gap-2 p-5 sm:p-6">
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                     0{i + 1}
                   </span>
-                  <h3 className="text-lg font-semibold text-text-primary sm:text-xl lg:text-2xl">
+                  <h3 className="text-lg font-semibold text-inverse sm:text-xl lg:text-2xl">
                     {service.name}
                   </h3>
-                  <p className="max-w-sm text-sm text-text-secondary">
+                  <p className="max-w-sm text-sm text-inverse-muted">
                     {service.description}
                   </p>
-                  <span className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-text-primary transition-colors group-hover:text-gold">
+                  <span className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-inverse transition-colors group-hover:text-gold">
                     Learn More
                     <span
                       aria-hidden

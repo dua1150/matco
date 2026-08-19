@@ -65,7 +65,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/70 to-bg-primary/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/70 to-overlay/20" />
         </div>
 
         <div className="container-app relative z-10 flex flex-col gap-4 pb-16">
@@ -76,12 +76,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </span>
           </AnimatedReveal>
           <AnimatedReveal delay={0.1}>
-            <h1 className="max-w-3xl text-[clamp(2rem,5vw,4rem)] font-semibold leading-tight text-text-primary">
+            <h1 className="max-w-3xl text-[clamp(2rem,5vw,4rem)] font-semibold leading-tight text-inverse">
               {project.name}
             </h1>
           </AnimatedReveal>
           <AnimatedReveal delay={0.15}>
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-inverse-muted">
               {project.location}
             </span>
           </AnimatedReveal>

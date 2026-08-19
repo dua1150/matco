@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Button from "@/components/shared/Button";
+import ThemeToggle from "@/components/shared/ThemeToggle";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -13,16 +15,48 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+const THEME_STORAGE_KEY = "matco-theme";
+
+function pageHasHeroImage(pathname: string): boolean {
+  if (pathname === "/" || pathname === "/about" || pathname === "/process") {
+    return true;
+  }
+  if (pathname.startsWith("/projects/") && pathname !== "/projects") {
+    return true;
+  }
+  return false;
+}
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  const hasHero = pageHasHeroImage(pathname);
+  const showSolidNav = scrolled || !hasHero;
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, next ? "dark" : "light");
+    } catch {
+      // ignore storage errors (private browsing etc.)
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -43,8 +77,8 @@ export default function Navbar() {
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-line bg-bg-secondary/95 backdrop-blur-sm"
+        showSolidNav
+          ? "border-b border-nav-border bg-nav-bg-scrolled/95 backdrop-blur-sm"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -68,7 +102,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="group relative py-1 text-sm font-medium tracking-wide text-text-primary/85 transition-colors hover:text-text-primary"
+              className="text-outline group relative py-1 text-sm font-medium tracking-wide text-nav-text/85 transition-colors hover:text-nav-text"
             >
               {link.label}
               <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
@@ -76,41 +110,45 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
           <Button href="/contact" variant="primary" size="sm">
             Get a Quote
           </Button>
         </div>
 
-        <button
-          type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav-menu"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
-        >
-          <span
-            className={`block h-[1.5px] w-6 bg-text-primary transition-transform duration-300 ${
-              menuOpen ? "translate-y-[7px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-[1.5px] w-6 bg-text-primary transition-opacity duration-300 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`block h-[1.5px] w-6 bg-text-primary transition-transform duration-300 ${
-              menuOpen ? "-translate-y-[7px] -rotate-45" : ""
-            }`}
-          />
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-1.5"
+          >
+            <span
+              className={`block h-[1.5px] w-6 bg-nav-text transition-transform duration-300 ${
+                menuOpen ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-6 bg-nav-text transition-opacity duration-300 ${
+                menuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-6 bg-nav-text transition-transform duration-300 ${
+                menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       <div
         id="mobile-nav-menu"
-        className={`fixed inset-0 z-40 flex flex-col justify-center bg-bg-secondary transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col justify-center bg-nav-bg-scrolled transition-opacity duration-300 lg:hidden ${
           menuOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -127,7 +165,7 @@ export default function Navbar() {
               href={link.href}
               tabIndex={menuOpen ? 0 : -1}
               onClick={() => setMenuOpen(false)}
-              className="text-3xl font-semibold tracking-tight text-text-primary transition-colors hover:text-gold"
+              className="text-outline text-3xl font-semibold tracking-tight text-nav-text transition-colors hover:text-gold"
             >
               {link.label}
             </Link>

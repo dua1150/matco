@@ -33,7 +33,7 @@ export default function ProcessPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/70 to-bg-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/70 to-overlay/30" />
         </div>
 
         <div className="container-app relative z-10 flex flex-col gap-4 pb-16">
@@ -44,7 +44,7 @@ export default function ProcessPage() {
             </span>
           </AnimatedReveal>
           <AnimatedReveal delay={0.1}>
-            <h1 className="max-w-2xl text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] text-text-primary">
+            <h1 className="max-w-2xl text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] text-inverse">
               From First Idea
               <br />
               <span className="text-maroon">to Finished Space.</span>

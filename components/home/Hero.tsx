@@ -3,7 +3,6 @@ import Button from "@/components/shared/Button";
 import AnimatedReveal from "@/components/shared/AnimatedReveal";
 import StatItem from "@/components/shared/StatItem";
 
-// PLACEHOLDER stats — replace with confirmed company figures before launch
 const STATS = [
   { value: "10+", label: "Years Experience" },
   { value: "100+", label: "Projects Completed" },
@@ -24,8 +23,8 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/70 to-bg-primary/30" />
-        <div className="absolute inset-0 bg-bg-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/70 to-overlay/30" />
+        <div className="absolute inset-0 bg-overlay/20" />
       </div>
 
       <div className="container-app relative z-10 flex flex-col gap-6 pb-20 pt-40">
@@ -37,7 +36,7 @@ export default function Hero() {
         </AnimatedReveal>
 
         <AnimatedReveal delay={0.1}>
-          <h1 className="max-w-4xl text-[clamp(2.5rem,6.5vw,6rem)] font-semibold leading-[1.03] text-text-primary">
+          <h1 className="max-w-4xl text-[clamp(2.5rem,6.5vw,6rem)] font-semibold leading-[1.03] text-inverse">
             Building Spaces.
             <br />
             <span className="text-maroon">Creating Legacies.</span>
@@ -45,7 +44,7 @@ export default function Hero() {
         </AnimatedReveal>
 
         <AnimatedReveal delay={0.2}>
-          <p className="max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-inverse-muted sm:text-lg">
             MATCO delivers complete construction, interior &amp; exterior,
             carpentry, aluminium &amp; UPVC, and steel fabrication solutions
             — built on precision, quality, and craftsmanship.
@@ -57,7 +56,7 @@ export default function Hero() {
             <Button href="/projects" variant="primary" size="lg">
               Explore Our Projects
             </Button>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button href="/contact" variant="secondary" tone="inverse" size="lg">
               Get a Quote
             </Button>
           </div>

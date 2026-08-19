@@ -24,21 +24,21 @@ export default function ProjectCard({
         quality={90}
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/40 to-transparent" />
 
       <div className="relative z-10 flex flex-col gap-1 p-5">
         <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gold">
           {project.category.map((c) => CATEGORY_LABELS[c]).join(" · ")}
         </span>
-        <h3 className="text-lg font-semibold text-text-primary">
+        <h3 className="text-lg font-semibold text-inverse">
           {project.name}
         </h3>
-        <span className="text-xs text-text-secondary">{project.location}</span>
+        <span className="text-xs text-inverse-muted">{project.location}</span>
       </div>
 
       <span
         aria-hidden
-        className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center border border-text-primary/30 text-text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center border border-inverse/30 text-inverse opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       >
         →
       </span>

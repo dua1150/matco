@@ -18,7 +18,6 @@ const inter = Inter({
   display: "swap",
 });
 
-// NOTE: placeholder domain — update once the production domain is known.
 const SITE_URL = "https://matco.example.com";
 
 export const metadata: Metadata = {
@@ -57,13 +56,31 @@ export const metadata: Metadata = {
   },
 };
 
+const THEME_INIT_SCRIPT = `
+(function () {
+  try {
+    var theme = localStorage.getItem('matco-theme');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="antialiased">
         <Navbar />
         <main>{children}</main>

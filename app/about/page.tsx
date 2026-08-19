@@ -33,7 +33,7 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/70 to-bg-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/70 to-overlay/30" />
         </div>
 
         <div className="container-app relative z-10 flex flex-col gap-4 pb-16">
@@ -44,7 +44,7 @@ export default function AboutPage() {
             </span>
           </AnimatedReveal>
           <AnimatedReveal delay={0.1}>
-            <h1 className="max-w-2xl text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] text-text-primary">
+            <h1 className="max-w-2xl text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] text-inverse">
               Built on Craftsmanship.
               <br />
               <span className="text-maroon">Driven by Precision.</span>
@@ -79,7 +79,6 @@ export default function AboutPage() {
               completion without being split across disconnected contractors.
             </p>
             <p className="text-base leading-relaxed text-text-secondary">
-              {/* PLACEHOLDER — replace with the company's real founding story / background once confirmed */}
               Our approach is built around precision and craftsmanship at
               every stage, whether we&apos;re framing a structure, fitting a
               custom kitchen, or fabricating a steel gate.
@@ -139,7 +138,7 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-bg-primary/80" />
+          <div className="absolute inset-0 bg-overlay/80" />
         </div>
 
         <div className="container-app relative z-10 flex flex-col items-start gap-6">
@@ -150,7 +149,7 @@ export default function AboutPage() {
             </span>
           </AnimatedReveal>
           <AnimatedReveal delay={0.1}>
-            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-text-primary sm:text-4xl">
+            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-inverse sm:text-4xl">
               Ready to start your project with MATCO?
             </h2>
           </AnimatedReveal>

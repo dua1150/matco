@@ -12,7 +12,7 @@ export default function NotFound() {
           sizes="100vw"
           className="object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-bg-primary/85" />
+        <div className="absolute inset-0 bg-overlay/85" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-6">
@@ -20,10 +20,10 @@ export default function NotFound() {
           <span className="h-px w-8 bg-gold" />
           404
         </span>
-        <h1 className="text-3xl font-semibold text-text-primary sm:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-semibold text-inverse sm:text-4xl lg:text-5xl">
           This Page Doesn&apos;t Exist.
         </h1>
-        <p className="max-w-md text-base leading-relaxed text-text-secondary">
+        <p className="max-w-md text-base leading-relaxed text-inverse-muted">
           The page you&apos;re looking for may have been moved or no longer
           exists. Let&apos;s get you back on track.
         </p>
@@ -31,7 +31,7 @@ export default function NotFound() {
           <Button href="/" variant="primary" size="md">
             Back to Home
           </Button>
-          <Button href="/projects" variant="secondary" size="md">
+          <Button href="/projects" variant="secondary" tone="inverse" size="md">
             View Projects
           </Button>
         </div>

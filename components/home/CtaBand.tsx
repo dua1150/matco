@@ -13,8 +13,8 @@ export default function CtaBand() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-bg-primary/80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-bg-primary/40" />
+        <div className="absolute inset-0 bg-overlay/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-overlay via-overlay/60 to-overlay/40" />
       </div>
 
       <div className="container-app relative z-10 flex flex-col items-start gap-6">
@@ -26,7 +26,7 @@ export default function CtaBand() {
         </AnimatedReveal>
 
         <AnimatedReveal delay={0.1}>
-          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-text-primary sm:text-4xl lg:text-5xl">
+          <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-inverse sm:text-4xl lg:text-5xl">
             Let&apos;s Build It Together.
           </h2>
         </AnimatedReveal>
@@ -36,7 +36,7 @@ export default function CtaBand() {
             <Button href="/contact" variant="primary" size="lg">
               Get a Quote
             </Button>
-            <Button href="tel:+96897629914" variant="secondary" size="lg">
+            <Button href="tel:+96897629914" variant="secondary" tone="inverse" size="lg">
               Call Now
             </Button>
           </div>

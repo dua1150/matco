@@ -6,7 +6,7 @@ import QuoteForm from "@/components/contact/QuoteForm";
 export const metadata: Metadata = {
   title: "Contact MATCO",
   description:
-    "Get in touch with MATCO Construction & Architectural Solutions in Sanaiya, Sultanate of Oman, to discuss your construction, interior, carpentry, aluminium & UPVC, or steel fabrication project.",
+    "Get in touch with MATCO Construction & Architectural Solutions in Auqadh Industrial Area, Salalah, Sultanate of Oman, to discuss your construction, interior, carpentry, aluminium & UPVC, or steel fabrication project.",
 };
 
 export default function ContactPage() {
@@ -39,7 +39,7 @@ export default function ContactPage() {
                   </li>
                   <li>
                     
-                     <a href="tel:+96871714825"
+                    <a  href="tel:+96871714825"
                       className="transition-colors hover:text-text-primary"
                     >
                       Phone: +968 7171 4825
@@ -53,15 +53,15 @@ export default function ContactPage() {
                       Email: Matco.oman1@gmail.com
                     </a>
                   </li>
-                  <li>Location: Sanaiya, Sultanate of Oman</li>
-                  <li>Hours: Mon – Sat, 9:00 AM – 6:00 PM</li>
+                  <li>Location: Auqadh Industrial Area, Salalah, Sultanate of Oman</li>
+                  <li>Hours: Sat – Thu, 8:00 AM – 1:00 PM &amp; 3:00 PM – 8:00 PM</li>
                 </ul>
               </div>
 
               <div className="overflow-hidden border border-line">
                 <iframe
-                  title="MATCO location — Sanaiya, Sultanate of Oman"
-                  src="https://www.google.com/maps?q=Sanaiya,+Sultanate+of+Oman&output=embed"
+                  title="MATCO location — Auqadh Industrial Area, Salalah, Sultanate of Oman"
+                  src="https://www.google.com/maps?q=Auqadh+Industrial+Area,+Salalah,+Sultanate+of+Oman&output=embed"
                   width="100%"
                   height="280"
                   style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(0.85)" }}

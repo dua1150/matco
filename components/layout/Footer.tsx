@@ -89,14 +89,13 @@ export default function Footer() {
             <li>
               
                <a href="mailto:Matco.oman1@gmail.com"
-                className="transition-colors hover:text-text-primary">
-              
+                className="transition-colors hover:text-text-primary"
+              >
                 Matco.oman1@gmail.com
               </a>
             </li>
-            
-            <li>Sanaiya, Sultanate of Oman</li>
-            <li>Mon – Sat: 9:00 AM – 6:00 PM</li>
+            <li>Auqadh Industrial Area, Salalah, Sultanate of Oman</li>
+            <li>Sat – Thu: 8:00 AM – 1:00 PM &amp; 3:00 PM – 8:00 PM</li>
           </ul>
         </div>
       </div>

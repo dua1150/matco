@@ -1,20 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #121212;
-  --color-bg-secondary: #181818;
-  --color-surface: #1e1e1e;
-  --color-line: #2a2a2a;
+  /* Page colors — default (Light theme) values */
+  --color-bg-primary: #f7f5f1;
+  --color-bg-secondary: #fcfaf7;
+  --color-surface: #ffffff;
+  --color-line: #e3ded6;
+  --color-text-primary: #1c1a18;
+  --color-text-secondary: #6b655d;
 
+  /* Brand — constant in both themes */
   --color-maroon: #831d22;
   --color-maroon-hover: #9c2229;
   --color-gold: #ef972e;
 
-  --color-text-primary: #f2efea;
-  --color-text-secondary: #a8a29b;
+  /* Navbar — intentionally inverted relative to page theme */
+  --color-nav-bg: #121212;
+  --color-nav-bg-scrolled: #181818;
+  --color-nav-text: #f2efea;
+  --color-nav-text-stroke: #000000;
+  --color-nav-border: #2a2a2a;
+
+  /* Fixed tokens for text/buttons sitting on top of photographs
+     (always light text on a dark gradient, regardless of theme) */
+  --color-inverse: #f2efea;
+  --color-inverse-muted: #a8a29b;
+  --color-overlay: #121212;
 
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-inter);
+}
+
+:root {
+  --color-bg-primary: #f7f5f1;
+  --color-bg-secondary: #fcfaf7;
+  --color-surface: #ffffff;
+  --color-line: #e3ded6;
+  --color-text-primary: #1c1a18;
+  --color-text-secondary: #6b655d;
+
+  --color-nav-bg: #121212;
+  --color-nav-bg-scrolled: #181818;
+  --color-nav-text: #f2efea;
+  --color-nav-text-stroke: #000000;
+  --color-nav-border: #2a2a2a;
+}
+
+.dark {
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #181818;
+  --color-surface: #1e1e1e;
+  --color-line: #2a2a2a;
+  --color-text-primary: #f2efea;
+  --color-text-secondary: #a8a29b;
+
+  --color-nav-bg: #f7f5f1;
+  --color-nav-bg-scrolled: #ffffff;
+  --color-nav-text: #1c1a18;
+  --color-nav-text-stroke: #ffffff;
+  --color-nav-border: #e3ded6;
 }
 
 @layer base {
@@ -30,6 +74,7 @@
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     font-family: var(--font-body), system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1,
@@ -55,5 +100,17 @@
 @layer utilities {
   .container-app {
     @apply mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-12;
+  }
+
+  .text-outline {
+    text-shadow:
+      -1px -1px 0 var(--color-nav-text-stroke),
+      1px -1px 0 var(--color-nav-text-stroke),
+      -1px 1px 0 var(--color-nav-text-stroke),
+      1px 1px 0 var(--color-nav-text-stroke),
+      0 -1px 0 var(--color-nav-text-stroke),
+      0 1px 0 var(--color-nav-text-stroke),
+      -1px 0 0 var(--color-nav-text-stroke),
+      1px 0 0 var(--color-nav-text-stroke);
   }
 }
